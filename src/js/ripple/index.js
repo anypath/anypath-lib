@@ -39,21 +39,21 @@ exports.keypairs = require('./keypairs');
 
 // camelCase to under_scored API conversion
 function attachUnderscored(name) {
- var o = exports[name];
+  var o = exports[name];
 
- Object.keys(o.prototype).forEach(function(key) {
-   var UPPERCASE = /([A-Z]{1})[a-z]+/g;
+  Object.keys(o.prototype).forEach(function(key) {
+    var UPPERCASE = /([A-Z]{1})[a-z]+/g;
 
-   if (!UPPERCASE.test(key)) {
-     return;
-   }
+    if (!UPPERCASE.test(key)) {
+      return;
+    }
 
-   var underscored = key.replace(UPPERCASE, function(c) {
-     return '_' + c.toLowerCase();
-   });
+    var underscored = key.replace(UPPERCASE, function(c) {
+      return '_' + c.toLowerCase();
+    });
 
-   o.prototype[underscored] = o.prototype[key];
- });
+    o.prototype[underscored] = o.prototype[key];
+  });
 }
 
 ['Remote',

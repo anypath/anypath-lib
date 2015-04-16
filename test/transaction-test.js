@@ -577,7 +577,7 @@ describe('Transaction', function() {
     transaction.tx_json.Sequence = 1;
     transaction.tx_json.TransactionType = 'AccountSet';
 
-    assert.strictEqual(transaction.hash('HASH_TX_SIGN'), 'D1C15200CF532175F1890B6440AD223D3676140522BC11D2784E56760AE3B4FE')
+    assert.strictEqual(transaction.hash('HASH_TX_SIGN'), 'D1C15200CF532175F1890B6440AD223D3676140522BC11D2784E56760AE3B4FE');
     done();
   });
 

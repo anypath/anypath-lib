@@ -64,15 +64,15 @@ Seed.prototype.parse_passphrase = function(j) {
 
 Seed.prototype.parse_base58 = function(j) {
   var result = Base.decode_multi(j, Seed.width);
+
   if (result.error) {
     this._value = NaN;
-  } else {
-    if (lodash.isEqual(result.version, [Base.VER_FAMILY_SEED]) ||
+  } else if (lodash.isEqual(result.version, [Base.VER_FAMILY_SEED]) ||
         lodash.isEqual(result.version, Base.VER_ED25519_SEED)) {
       this._version = result.version;
       this._value = sjcl.bn.fromBits(sjcl.codec.bytes.toBits(result.bytes));
-    }
   }
+
   return this;
 };
 
